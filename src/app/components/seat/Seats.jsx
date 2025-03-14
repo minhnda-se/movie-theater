@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import locationJson from "../../mock/locations.json";
-import cinemasJson from "../../mock/cinemas.json";
-import sessionsJson from "../../mock/sessions.json";
-import moviesJson from "../../mock/movies.json";
-import seatsJson from "../../mock/seats.json";
-import "./Seats.scss";
+import locationJson from "../../../mock/locations.json";
+import cinemasJson from "../../../mock/cinemas.json";
+import sessionsJson from "../../../mock/sessions.json";
+import moviesJson from "../../../mock/movies.json";
+import seatsJson from "../../../mock/seats.json";
+import "../seat/Seats.scss";
 const Seats = () => {
   const [location, setLocation] = useState([]);
   const [cinemas, setCinemas] = useState([]);
@@ -82,6 +82,7 @@ const Seats = () => {
       </div>
 
       <div className="seats_container">
+        <div className="box"></div>
         <div
           className="seats_grid_template"
           style={{
