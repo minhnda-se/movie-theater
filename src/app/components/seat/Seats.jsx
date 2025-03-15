@@ -86,8 +86,8 @@ const Seats = () => {
         <div
           className="seats_grid_template"
           style={{
-            gridTemplateColumns: `repeat(${maxColumn}, calc(99vw/${maxColumn}))`, // Repeat maxColumn times with 10px width
-            gridTemplateRows: `repeat(${maxRow}, calc(10wh/${maxRow})`, // Repeat maxRow times with 20px height
+            gridTemplateColumns: `repeat(${maxColumn}, calc(99vw/${maxColumn}))`,
+            gridTemplateRows: `repeat(${maxRow}, calc(10wh/${maxRow})`,
           }}
         >
           {seats.map((row) => (
