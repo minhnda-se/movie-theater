@@ -1,10 +1,12 @@
 import React from 'react';
 import './Checkout.scss';
+import PayMethod from './partials/PaymentMethod';
 export default function Checkout() {
   return (
+    <div className='checkout-container'>
     <div className='checkout'>
     <div className='rounded'></div>
-    <div className='checkout_container'>
+    <div className='checkout-info_container'>
             <div class = "movie-info_container">
             <img src="https://cdn.galaxycine.vn/media/2025/3/3/quy-nhap-trang-sneak-500_1740997588972.jpg" alt="" />
             <div className='movie-info'>
@@ -45,5 +47,7 @@ export default function Checkout() {
                 <button className='item-button'>Thanh toán</button>
             </div>
         </div>
+        <PayMethod></PayMethod>
+    </div>
   )
 }

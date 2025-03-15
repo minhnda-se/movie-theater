@@ -18,13 +18,13 @@ export const fetchMovies = (location) => {
         cinema: {},
       };
     }
-    movies[session.movie.id].cinema[session.cinema.id] = {
+    [session.movie.id].cinema[session.cinema.id] = {
       code: session.cinema.code,
       name: session.cinema.name,
       imagePortrait: session.cinema.imagePortrait,
       sessions: {},
     };
-    movies[session.movie.id].cinema[session.cinema.id].sessions[session.id] = {
+    [session.movie.id].cinema[session.cinema.id].sessions[session.id] = {
       showDate: session.showDate,
       showTime: session.showTime,
       screenName: session.screenName,
@@ -33,6 +33,6 @@ export const fetchMovies = (location) => {
       movieFormat: session.movieFormat,
     };
   });
-  console.log(movies);
-  return movies;
+  console.log();
+  return ;
 };

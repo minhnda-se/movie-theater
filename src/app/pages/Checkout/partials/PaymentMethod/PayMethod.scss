@@ -1,0 +1,19 @@
+.payment_container{
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.payment_container img{
+    object-fit: cover;
+    max-width: 5%;
+}
+.payment_container label{
+    align-self: center;
+}
+.payment-method_container{
+    box-shadow:  -2px 1px 13px 2px #cccccc;
+    width: 50%;
+    height: fit-content;
+    padding: 16px;
+}
