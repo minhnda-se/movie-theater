@@ -3,6 +3,7 @@ import "./Home.scss";
 import { fetchMovies } from "./services/fetchMoive";
 import { fetchComingMoives } from "./services/fetchComingMovie";
 import { fetchLocations } from "./services/fetchLocations";
+import TrailerModal from "./partials/TrailerModal";
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
@@ -12,16 +13,24 @@ export default function Home() {
   const [location, setLocation] = useState({});
   const [selectLocation, setSelectlocation] = useState("");
   useEffect(() => {
-    const fetchLocation = fetchLocations();
-    setLocation(fetchLocation);
+    const fetchLocation = async () => {
+      const locations = await fetchLocations();
+      setLocation(locations);
+    };
+    fetchLocation();
   }, []);
+
+  // Fetch movies when a location is selected
   useEffect(() => {
-    if (selectLocation.length > 0) {
-      const fetchMoive = fetchMovies(selectLocation);
-      console.log(fetchMoive);
-      const fetchComingMovie = fetchComingMoives(selectLocation);
-      setMovies(fetchMoive);
-    }
+    const fetchMovieData = async () => {
+      if (selectLocation.length > 0) {
+        const moviesData = await fetchMovies(selectLocation);
+        const comingMoviesData = await fetchComingMoives(selectLocation);
+        setMovies(moviesData);
+        setComingMovies(comingMoviesData);
+      }
+    };
+    fetchMovieData();
   }, [selectLocation]);
 
   const handleInShowClick = () => {
@@ -66,21 +75,11 @@ export default function Home() {
               Sap chieu
             </button>
           </div>
-
-          <div className="home_moive">
-            {Object.keys(movies).map((key) => (
-              <div key={key} className="card">
-                <div className="card_img">
-                  <img src={movies[key].imagePortrait} alt={movies[key].name} />
-                  <div className="card_img_hover">
-                    <button>Mua ve</button>
-                    <button>Trailer</button>
-                  </div>
-                </div>
-                <h4>{movies[key].name}</h4>
-              </div>
-            ))}
-          </div>
+          {isInShow ? (
+            <TrailerModal movies={movies} />
+          ) : (
+            <div>Coming soon...</div>
+          )}
         </div>
         <button className="btn_viewmore">Xem them &#62;</button>
       </div>

@@ -3,6 +3,7 @@ import sessionsJson from "../../../../mock/sessions.json";
 
 export const fetchMovies = (location) => {
   const moives = {};
+
   const dataResult = sessionsJson.data.result.filter((session) => {
     return session.cinema.cityId === location;
   });

@@ -183,3 +183,47 @@
     }
     
   }
+  .modal_container {
+    position: fixed; /* Use fixed to center over the entire viewport */
+    top: 15%; /* Position it 50% from the top */
+    left: 10%; /* Position it 50% from the left */
+    transform: translate(-50%, -50%); /* Offset by 50% of the modal's width and height */
+    z-index: 2; /* Make sure it's above other content */
+    opacity: 0; /* Start as invisible */
+    animation: homeModalPopUp 0.3s ease-in-out forwards; /* Apply animation for pop-up */
+  }
+.modal_container iframe {
+    width: 80vw;
+    height: 70vh;
+
+}
+.modal_container.inactive {
+    animation: homeModalPopOut 0.3s ease-in-out forwards; 
+
+}
+.close_modal_button {
+    background: #5d5d5d;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    top: -40px;
+    right: 0px;
+    font-size: 16px;
+    z-index: -1;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .close_modal_button:hover {
+    transform: scaleY(1.1);
+    background: #393939;
+  }
+#root:has(.modal_container.active) {
+    .header, .home_moive, .footer {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+    
+  }
