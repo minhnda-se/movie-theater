@@ -205,7 +205,7 @@
     background: #5d5d5d;
     color: white;
     border: none;
-    padding: 15px 20px;
+    padding: 15px 25px;
     cursor: pointer;
     border-radius: 5px;
     position: absolute;
@@ -217,7 +217,7 @@
   }
   
   .close_modal_button:hover {
-    transform: scaleY(1.1);
+    transform: translateY(-10%);
     background: #393939;
   }
 #root:has(.modal_container.active) {
@@ -225,5 +225,4 @@
         opacity: 0.3;
         pointer-events: none;
     }
-    
   }
